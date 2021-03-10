@@ -59,7 +59,7 @@ func (block Block) GetData()  []byte{
 /**
  * 区块的序列化方法
  */
-func (block *Block) Sweialize()  ([]byte,error) {
+func (block *Block) Serialize()  ([]byte,error) {
 	//缓冲区
 	buff := new(bytes.Buffer)
 	encoder := gob.NewEncoder(buff)
@@ -93,11 +93,6 @@ func CreateGenesis(data []byte) Block{
 	hash, nonce := proof.FindNonce()
 	genesis.Hash = hash
 	genesis.Nonce = nonce
-
-	//todo 计算并设置hash  寻找并设置nonce
-
-
-
 
 	return genesis
 }
